@@ -1,15 +1,24 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header";
-import Body from "./components/Body";
+import Header from './components/Header';
+import Body from './components/Body';
+import { withStyles } from '@material-ui/styles';
 
-function App() {
-    return (
-        <div className="App">
-            <Header/>
-            <Body/>
-        </div>
-    );
+const styles = (theme) => ({
+    root: {
+        border: 'solid black 1px',
+    },
+});
+class App extends React.Component {
+    render() {
+        const { classes } = this.props;
+        return (
+            <div className={classes.root}>
+                <Header />
+                <Body />
+            </div>
+        );
+    }
 }
 
-export default App;
+export default withStyles(styles)(App);
